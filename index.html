@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Матвей & Ева - Свадьба</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Рукописные шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=MedievalSharp&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="subtitle animate-fade-in-up">Wedding day</h1>
+            <h2 class="title animate-fade-in-up-delay">АНДРЕЙ & АЛЕКСАНДРА</h2>
+            
+            <!-- ПЛЕЕР ДОБАВЛЯЕМ ЗДЕСЬ - ПОСЛЕ ЗАГОЛОВКОВ, ПЕРЕД ФОТО -->
+            <div class="music-player-container">
+                <div class="music-player">
+                    <div class="circle-player">
+                        <!-- SVG для кругового текста -->
+                        <svg class="circle-text" viewBox="0 0 200 200" width="200" height="200">
+                            <defs>
+                                <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
+                            </defs>
+                            <text fill="#450619" font-family="'Cormorant Garamond', serif" font-size="14" font-weight="300">
+                                <textPath xlink:href="#circlePath" startOffset="50%" text-anchor="middle">
+                                    • включите музыку • включите музыку • включите музыку 
+                                </textPath>
+                            </text>
+                        </svg>
+                        
+                        <!-- Кнопка воспроизведения -->
+                        <button class="play-button" id="playButton">
+                            <svg class="play-icon" viewBox="0 0 100 100">
+                                <polygon class="play-triangle" points="30,25 30,75 70,50" fill="#f0e9df"/>
+                                <rect class="pause-bar pause-left" x="30" y="25" width="15" height="50" fill="#f0e9df" opacity="0"/>
+                                <rect class="pause-bar pause-right" x="55" y="25" width="15" height="50" fill="#f0e9df" opacity="0"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <audio id="weddingMusic" loop>
+                        <source src="1.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+        
+        <img src="1.jpg" alt="Андрей и Александра" class="hero-photo">
+    </section>
+
+    <!-- Секция с локацией (БОРДОВЫЙ ФОН) -->
+    <section class="location-section">
+        <div class="location-container">
+            <!-- Текст приглашения и дата -->
+            <div class="invitation-text">
+                <p class="invitation">Приглашаем Вас разделить с нами первый праздник нашей семьи – нашу свадьбу!</p>
+                <div class="date">08 ИЮНЯ 2026</div>
+                
+                <!-- Простой недельный календарь -->
+                <div class="date-photo-container">
+                    <img src="4.png" alt="Дата свадьбы 8 июня 2026" class="date-photo">
+                </div>
+            </div>
+            
+            <!-- Блок LOCATION с СВЕТЛЫМ фоном - ПЕРЕМЕЩАЕМ ЗДЕСЬ -->
+            <div class="location-info-light">
+                <div class="location-info-content">
+                    <h3 class="location-title">LOCATION</h3>
+                    
+                    <!-- Фото места проведения ВНУТРИ блока location-info-light ПОСЛЕ заголовка -->
+                    <div class="location-photo-container">
+                        <img src="2.png" alt="Место проведения свадьбы" class="location-photo">
+                    </div>
+                    
+                    <!-- Адрес и кнопка ПОСЛЕ фото -->
+                    <p class="location-address">Банкетный зал «Пушкинъ», Усадьба Гребнево, Россия, Московская обл., городской округ Щелково, г. Фрязино, д. Гребнево</p>
+                    <a href="https://yandex.ru/maps/?text=Усадьба+Гребнево+Московская+область+Щелково+Фрязино+Гребнево" class="map-button" target="_blank">Посмотреть на карте</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "WEDDING PROGRAM" (БОРДОВЫЙ ФОН) -->
+    <section class="section program-section" id="program">
+    <div class="container">
+        <div class="section-header">
+        <h2 class="section-title">Программа дня</h2>
+        </div>
+        
+        <div class="program">
+        <div class="program-item">
+            <div class="program-image">
+            <img src="img/11.png" alt="Сбор гостей" class="program-icon">
+            </div>
+            <div class="program-content">
+            <h3 class="program-title">СБОР ГОСТЕЙ. ФУРШЕТ</h3>
+            <div class="program-time">15:30</div>
+            </div>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-image">
+            <img src="img/12.png" alt="Церемония" class="program-icon">
+            </div>
+            <div class="program-content">
+            <h3 class="program-title">ВЫЕЗДНАЯ ЦЕРЕМОНИЯ</h3>
+            <div class="program-time">16:30</div>
+            </div>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-image">
+            <img src="img/13.png" alt="Ужин" class="program-icon">
+            </div>
+            <div class="program-content">
+            <h3 class="program-title">НАЧАЛО БАНКЕТА</h3>
+            <div class="program-time">17:00</div>
+            </div>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-image">
+            <img src="img/14.png" alt="Торт" class="program-icon">
+            </div>
+            <div class="program-content">
+            <h3 class="program-title">СВАДЕБНЫЙ ТОРТ</h3>
+            <div class="program-time">20:30</div>
+            </div>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-image">
+            <img src="img/15.png" alt="Танцы" class="program-icon">
+            </div>
+            <div class="program-content">
+            <h3 class="program-title">ЗАЖИГАТЕЛЬНЫЙ DJ-СЕТ</h3>
+            <div class="program-time">22:00</div>
+            </div>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-image">
+            <img src="img/16.png" alt="Окончание" class="program-icon">
+            </div>
+            <div class="program-content">
+            <h3 class="program-title">ОКОНЧАНИЕ ВЕЧЕРА</h3>
+            <div class="program-time">23:00</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Секция "WISHES" (БОРДОВЫЙ ФОН) -->
+    <section class="wishes-section">
+        <div class="wishes-container">
+            <h2 class="wishes-title">WISHES</h2>
+            
+            <div class="wishes-content">
+                <p class="wishes-text">
+                    Ваше присутствие на нашей свадьбе — уже самый ценный подарок для нас! <br><br>
+                    Если вы всё же хотите сделать нам подарок, мы будем искренне благодарны за ваш вклад в бюджет нашей молодой семьи — он поможет нам осуществить самые сокровенные мечты. <br><br>
+                    А вместо цветов мы будем рады вашим тёплым объятиям и искренним улыбкам в этот особенный день!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "DRESS CODE" (СВЕТЛЫЙ ФОН) -->
+    <section class="dresscode-section">
+        <div class="dresscode-container">
+            <h2 class="dresscode-title">
+                <span>DRESS</span>
+                <span>CODE</span>
+            </h2>
+            
+            <div class="dresscode-content">
+                <p class="dresscode-text">Мы очень старались сделать праздник красивым и просим вас поддержать в своих нарядах цветовую гамму нашей свадьбы</p>
+                
+                <div class="palette-container">
+                    <img src="3.png" alt="Цветовая палитра свадьбы" class="palette-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Таймер отсчета до свадьбы -->
+    <section class="countdown-section">
+        <div class="countdown-container">
+            <h2 class="countdown-title">ДО СВАДЬБЫ ОСТАЛОСЬ</h2>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">000</div>
+                    <div class="countdown-label">ДНЕЙ</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">ЧАСОВ</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">МИНУТ</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">СЕКУНД</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "RSVP" (СВЕТЛЫЙ ФОН) -->
+    <section class="rsvp-section">
+        <div class="rsvp-container">
+            <h2 class="rsvp-title">АНКЕТА</h2>
+            
+            <div class="rsvp-content">
+                <p class="rsvp-text">
+                    Просим подтвердить свое присутствие на торжестве<br>
+                    Мы будем ждать от вас ответ до 25 апреля 2026 года.
+                </p>
+                
+                <form class="rsvp-form">
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Фамилия Имя Отчество" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" class="form-input" placeholder="Номер телефона" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select class="form-input form-select">
+                            <option value="" disabled selected>Количество гостей</option>
+                            <option value="1">1 (только я)</option>
+                            <option value="2">2 (я + партнёр)</option>
+                            <option value="3">3 (я + 2 гостя)</option>
+                            <option value="4">4 (я + 3 гостя)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="yes" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">С радостью приду!</span>
+                            </label>
+                            
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="no">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">К сожалению, не смогу</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Подтвердить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <p class="footer-text">
+                Если у вас появятся вопросы по мероприятию или вы подготовили творческий сюрприз, обращайтесь к нашему организатору<br>
+                <span class="footer-contact">Евгения +7 963 603 90 06</span><br>
+                и координатору<br>
+                <span class="footer-contact">Ксения +Х ХХХ ХХХ ХХ ХХ</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
