@@ -61,12 +61,200 @@
             <!-- Текст приглашения и дата -->
             <div class="invitation-text">
                 <p class="invitation">Приглашаем Вас разделить с нами первый праздник нашей семьи – нашу свадьбу!</p>
-                <div class="date">08 ИЮНЯ 2026</div>
+                <div class="date">21 МАЯ 2026</div>
                 
                 <!-- Простой недельный календарь -->
-                <div class="date-photo-container">
-                    <img src="4.png" alt="Дата свадьбы 8 июня 2026" class="date-photo">
-                </div>
+                <!-- Вместо <img src="4.png" alt="Дата свадьбы 8 июня 2026" class="date-photo"> вставляем этот код -->
+
+<!-- Простой календарь с выделенной датой свадьбы (ПРОЗРАЧНЫЙ ФОН) -->
+<div class="simple-calendar">
+    <!-- Дни недели -->
+    <div class="calendar-row days-of-week">
+        <div class="calendar-day">ПН</div>
+        <div class="calendar-day">ВТ</div>
+        <div class="calendar-day">СР</div>
+        <div class="calendar-day">ЧТ</div>
+        <div class="calendar-day">ПТ</div>
+        <div class="calendar-day">СБ</div>
+        <div class="calendar-day">ВС</div>
+    </div>
+    <!-- Первая неделя (18.05 - 24.05) -->
+    <div class="calendar-row">
+        <div class="calendar-date">18</div>
+        <div class="calendar-date">19</div>
+        <div class="calendar-date">20</div>
+        <!-- Выделенная дата свадьбы (21 мая) -->
+        <div class="calendar-date wedding-date">21</div>
+        <div class="calendar-date">22</div>
+        <div class="calendar-date">23</div>
+        <div class="calendar-date">24</div>
+    </div>
+    <!-- Вторая неделя (25.05 - 31.05) -->
+    <div class="calendar-row">
+        <div class="calendar-date">25</div>
+        <div class="calendar-date">26</div>
+        <div class="calendar-date">27</div>
+        <div class="calendar-date">28</div>
+        <div class="calendar-date">29</div>
+        <div class="calendar-date">30</div>
+        <div class="calendar-date">31</div>
+    </div>
+</div>
+
+<!-- Стили для календаря (ПОЛНОСТЬЮ ПРОЗРАЧНЫЙ ФОН) -->
+<style>
+    /* Контейнер календаря — теперь без фона и границ */
+    .simple-calendar {
+        max-width: 600px;
+        margin-left: auto;  /* Выравнивание справа */
+        margin-bottom: 40px;
+        /* Убираем весь фон и границы */
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0;  /* Убираем внутренние отступы */
+    }
+
+    /* Строка календаря */
+    .calendar-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px; /* Немного уменьшил отступ */
+    }
+    .calendar-row:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Ячейка дня недели — прозрачная */
+    .days-of-week .calendar-day {
+        font-weight: 400;
+        color: #f0e9df; /* Светлый текст */
+        opacity: 0.9;
+    }
+    .calendar-day {
+        flex: 1;
+        text-align: center;
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 300;
+        font-size: 1.2rem;
+        color: #f0e9df; /* Светлый текст */
+        padding: 5px; /* Уменьшил padding */
+        /* Убираем фон */
+        background-color: transparent !important;
+    }
+
+    /* Ячейка с числом — полностью прозрачная, только текст */
+    .calendar-date {
+        flex: 1;
+        text-align: center;
+        font-family: 'Cinzel', serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: #f0e9df; /* Светлый текст */
+        padding: 10px 5px;
+        margin: 0 5px;
+        /* Полностью прозрачный фон */
+        background-color: transparent !important;
+        border-radius: 0; /* Убираем скругление */
+        transition: all 0.3s ease;
+    }
+
+    /* Выделенная дата свадьбы — только обводка/фон для самой даты */
+    .calendar-date.wedding-date {
+        background-color: #f0e9df !important; /* Светлый фон только для этой ячейки */
+        color: #5c151b !important; /* Бордовый текст */
+        border-radius: 50%; /* Делаем круглую форму */
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; /* Центрируем круг */
+        font-size: 1.8rem;
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        position: relative;
+        /* Убираем лишние отступы, чтобы круг был ровным */
+        padding: 0;
+        line-height: 1;
+    }
+    
+    /* Сердечко под круглой датой */
+    /* .calendar-date.wedding-date::after {
+        content: '♥';
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.5rem;
+        color: #f0e9df;
+        white-space: nowrap;
+    } */
+
+    /* Адаптивность для мобильных */
+    @media (max-width: 768px) {
+        .simple-calendar {
+            margin: 0 auto 30px auto; /* Центрируем на мобильных */
+        }
+        
+        .calendar-day {
+            font-size: 1rem;
+            padding: 5px 2px;
+        }
+        
+        .calendar-date {
+            font-size: 1.5rem;
+            padding: 8px 2px;
+            margin: 0 2px;
+        }
+        
+        /* Круглая дата на мобильных */
+        .calendar-date.wedding-date {
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+        }
+        
+        /* .calendar-date.wedding-date::after {
+            font-size: 1.2rem;
+            bottom: -22px;
+        } */
+    }
+
+    @media (max-width: 480px) {
+        .calendar-day {
+            font-size: 0.9rem;
+            padding: 5px 1px;
+        }
+        
+        .calendar-date {
+            font-size: 1.3rem;
+            padding: 6px 1px;
+            margin: 0 1px;
+        }
+        
+        .calendar-date.wedding-date {
+            width: 40px;
+            height: 40px;
+            font-size: 1.3rem;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        .calendar-day {
+            font-size: 0.8rem;
+        }
+        
+        .calendar-date {
+            font-size: 1.1rem;
+        }
+        
+        .calendar-date.wedding-date {
+            width: 35px;
+            height: 35px;
+            font-size: 1.1rem;
+        }
+    }
+</style>
             </div>
             
             <!-- Блок LOCATION с СВЕТЛЫМ фоном - ПЕРЕМЕЩАЕМ ЗДЕСЬ -->
@@ -276,9 +464,7 @@
         <div class="footer-container">
             <p class="footer-text">
                 Если у вас появятся вопросы по мероприятию или вы подготовили творческий сюрприз, обращайтесь к нашему организатору<br>
-                <span class="footer-contact">Евгения +7 963 603 90 06</span><br>
-                и координатору<br>
-                <span class="footer-contact">Ксения +Х ХХХ ХХХ ХХ ХХ</span>
+                <span class="footer-contact">Ксения +Х ХХХ ХХХ ХХ ХХ</span><br>
             </p>
         </div>
     </footer>
