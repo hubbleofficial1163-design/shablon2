@@ -13,6 +13,71 @@
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=MedievalSharp&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
 </head>
 <body>
+        <!-- Добавь ЭТОТ скрипт сразу после открывающегося тега body -->
+    <script>
+        // Мгновенное исправление для мобильных устройств
+        (function() {
+            // Применяем стили до загрузки страницы
+            if (window.innerWidth <= 900) {
+                var style = document.createElement('style');
+                style.textContent = `
+                    .hero { display: flex !important; flex-direction: column !important; }
+                    .hero-content { position: relative !important; z-index: 10 !important; }
+                    .hero-photo { position: relative !important; margin: 0 auto !important; }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Функция для корректировки после загрузки
+            function fixHeroLayout() {
+                if (window.innerWidth > 900) return;
+                
+                var hero = document.querySelector('.hero');
+                var photo = document.querySelector('.hero-photo');
+                var player = document.querySelector('.music-player-container');
+                var content = document.querySelector('.hero-content');
+                
+                if (!hero || !photo || !player || !content) return;
+                
+                // Принудительно устанавливаем стили
+                hero.style.display = 'flex';
+                hero.style.flexDirection = 'column';
+                hero.style.justifyContent = 'flex-start';
+                
+                photo.style.position = 'relative';
+                photo.style.bottom = 'auto';
+                photo.style.left = 'auto';
+                photo.style.transform = 'none';
+                photo.style.margin = '20px auto 0 auto';
+                
+                // Проверяем, не наезжает ли фото на плеер
+                setTimeout(function() {
+                    var playerBottom = player.getBoundingClientRect().bottom;
+                    var photoTop = photo.getBoundingClientRect().top;
+                    
+                    if (photoTop < playerBottom + 20) {
+                        // Если наезжает, добавляем отступ
+                        photo.style.marginTop = (playerBottom - photoTop + 30) + 'px';
+                    }
+                }, 100);
+            }
+            
+            // Запускаем после загрузки DOM
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', fixHeroLayout);
+            } else {
+                fixHeroLayout();
+            }
+            
+            // Запускаем после полной загрузки
+            window.addEventListener('load', fixHeroLayout);
+            
+            // Запускаем при изменении размера
+            window.addEventListener('resize', function() {
+                setTimeout(fixHeroLayout, 100);
+            });
+        })();
+    </script>
     <!-- Hero секция -->
     <section class="hero">
         <div class="hero-content">
@@ -472,4 +537,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
