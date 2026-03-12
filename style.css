@@ -18,7 +18,8 @@ body {
 /* Hero секция - СВЕТЛЫЙ ФОН */
 .hero {
     width: 100vw;
-    height: 100vh;
+    height: 100vh; /* Будет переопределено JS */
+    min-height: 100vh; /* Будет переопределено JS */
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -27,6 +28,7 @@ body {
     color: #5c151b;
     text-align: center;
     overflow: hidden;
+    transition: height 0.1s ease; /* Плавное изменение */
 }
 
 .hero-content {
@@ -43,11 +45,23 @@ body {
     position: absolute;
     width: 450px;
     height: auto;
-    bottom: -40px;
+    bottom: 0; /* Изменено с отрицательного значения */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    border-radius: 40px 40px 0 0; /* ← Добавьте эту строку */
+    border-radius: 40px 40px 0 0;
+    max-width: 90%;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* Стили для верхнего текста */
@@ -176,7 +190,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.calendar-date.wedding-date::after {
+/* .calendar-date.wedding-date::after {
     content: '♥';
     position: absolute;
     bottom: -25px;
@@ -184,7 +198,7 @@ body {
     transform: translateX(-50%);
     font-size: 1.5rem;
     color: #f0e9df;
-}
+} */
 
 /* Фото места проведения */
 .location-photo-container {
@@ -809,7 +823,7 @@ body {
 @media (max-width: 768px) {
     /* Hero секция */
     .hero-content {
-        padding-top: 20vh;
+        padding-top: 10vh;
     }
     
     .subtitle {
@@ -823,8 +837,9 @@ body {
     }
     
     .hero-photo {
-        width: 450px;
-        bottom: -40px;
+        width: 380px;
+        bottom: 0;
+        max-width: 85%;
     }
     
     /* Секция локации */
@@ -1184,31 +1199,7 @@ a,
         -webkit-tap-highlight-color: transparent;
     }
 }
-/* Hero секция - СВЕТЛЫЙ ФОН */
-.hero {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    background-color: #f0e9df;
-    color: #5c151b;
-    text-align: center;
-    overflow: hidden;
-}
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding-top: 15vh; /* Уменьшили отступ сверху для плеера */
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 /* ПЛЕЕР МЕЖДУ ЗАГОЛОВКАМИ И ФОТО */
 .music-player-container {
@@ -1327,7 +1318,7 @@ a,
 /* Адаптивность для плеера */
 @media (max-width: 768px) {
     .hero-content {
-        padding-top: 12vh;
+        padding-top: 10vh;
     }
     
     .circle-player {
@@ -1354,14 +1345,15 @@ a,
     }
     
     .hero-photo {
-        width: 440px;
-        bottom: -40px;
+        width: 320px; /* Уменьшено с 450px */
+        bottom: 0; /* Убрано отрицательное значение */
+        max-width: 80%;
     }
 }
 
 @media (max-width: 480px) {
     .hero-content {
-        padding-top: 10vh;
+        padding-top: 8vh;
     }
     
     .circle-player {
@@ -1388,8 +1380,16 @@ a,
     }
     
     .hero-photo {
-        width: 350px;
-        bottom: -30px;
+        width: 320px;
+        bottom: 0;
+        max-width: 80%;
+    }
+}
+@media (max-width: 360px) {
+    .hero-photo {
+        width: 280px; /* Уменьшено с 450px */
+        bottom: 0;
+        max-width: 75%;
     }
 }
 
