@@ -1583,115 +1583,146 @@ a,
     }
 }
 
-/* ========== ИСПРАВЛЕНИЯ ДЛЯ TELEGRAM ========== */
-/* Просто скопируй этот блок в самый конец style.css */
+/* ========== УНИВЕРСАЛЬНОЕ ИСПРАВЛЕНИЕ ДЛЯ ВСЕХ МОБИЛЬНЫХ УСТРОЙСТВ ========== */
+/* Это решение работает на всех телефонах, включая Samsung Galaxy S22+ */
 
-/* Определяем, что это Telegram WebView */
+/* Применяем ко всем мобильным устройствам с шириной экрана до 900px */
+@media (max-width: 900px) {
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        height: 100vh !important;
+        min-height: -webkit-fill-available !important;
+        position: relative !important;
+        overflow-y: auto !important; /* Добавляем скролл если нужно */
+    }
+    
+    /* Перестраиваем контент */
+    .hero-content {
+        position: relative !important;
+        z-index: 10 !important;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        width: 100% !important;
+        flex: 0 0 auto !important;
+    }
+    
+    /* Фиксим плеер */
+    .music-player-container {
+        position: relative !important;
+        z-index: 10 !important;
+        margin: 10px 0 20px 0 !important;
+        flex: 0 0 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    
+    .circle-player {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
+    .play-button {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    /* КРИТИЧЕСКИ ВАЖНО: меняем позиционирование фото */
+    .hero-photo {
+        position: relative !important; /* Меняем с absolute на relative */
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        width: 300px !important;
+        max-width: 90% !important;
+        margin: 0 auto 0 auto !important; /* Центрируем */
+        display: block !important;
+        flex: 0 0 auto !important;
+        align-self: center !important;
+        border-radius: 30px 30px 0 0 !important;
+        z-index: 5 !important;
+    }
+    
+    /* Убираем возможные конфликтующие стили */
+    .hero::after {
+        display: none !important;
+    }
+}
+
+/* Специфично для Samsung и больших телефонов (ширина 400-900px) */
+@media (min-width: 401px) and (max-width: 900px) {
+    .hero-content {
+        padding-top: 30px !important;
+    }
+    
+    .hero-photo {
+        width: 350px !important;
+        margin-top: 10px !important;
+    }
+    
+    .title {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* Для очень больших телефонов (как S22+) */
+@media (min-width: 700px) and (max-width: 900px) {
+    .hero-content {
+        padding-top: 50px !important;
+    }
+    
+    .circle-player {
+        width: 170px !important;
+        height: 170px !important;
+    }
+    
+    .play-button {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .hero-photo {
+        width: 400px !important;
+    }
+    
+    .title {
+        font-size: 3rem !important;
+    }
+}
+
+/* Для маленьких телефонов */
+@media (max-width: 400px) {
+    .hero-content {
+        padding-top: 15px !important;
+    }
+    
+    .circle-player {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    
+    .play-button {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .hero-photo {
+        width: 250px !important;
+    }
+    
+    .title {
+        font-size: 2rem !important;
+    }
+}
+
+/* Фикс для Telegram и других WebView */
 @supports (-webkit-touch-callout: none) {
-    
-    /* Исправление для hero секции в Telegram */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         .hero {
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: space-between !important;
-            height: 100vh !important;
-            min-height: -webkit-fill-available !important;
-        }
-        
-        /* Перестраиваем контент */
-        .hero-content {
-            flex: 0 0 auto !important;
-            padding-top: 15px !important;
-            padding-bottom: 5px !important;
-            width: 100% !important;
-        }
-        
-        /* Фиксим плеер */
-        .music-player-container {
-            margin: 5px 0 !important;
-            flex: 0 0 auto !important;
-        }
-        
-        .circle-player {
-            width: 130px !important;
-            height: 130px !important;
-        }
-        
-        .play-button {
-            width: 55px !important;
-            height: 55px !important;
-        }
-        
-        /* Главное исправление - меняем позиционирование фото */
-        .hero-photo {
-            position: relative !important;  /* Убираем absolute */
-            bottom: 0 !important;
-            left: auto !important;
-            right: auto !important;
-            transform: none !important;
-            width: 260px !important;
-            max-width: 80% !important;
-            margin: auto auto 0 auto !important;  /* Прижимаем к низу */
-            display: block !important;
-            flex: 0 0 auto !important;
-            align-self: flex-end !important;
-            border-radius: 30px 30px 0 0 !important;
-        }
-        
-        /* Уменьшаем текст для маленьких экранов */
-        .subtitle {
-            font-size: 0.9rem !important;
-        }
-        
-        .title {
-            font-size: 2rem !important;
-        }
-    }
-    
-    /* Для совсем маленьких экранов (iPhone SE) */
-    @media (max-width: 375px) {
-        .hero-content {
-            padding-top: 10px !important;
-        }
-        
-        .circle-player {
-            width: 110px !important;
-            height: 110px !important;
-        }
-        
-        .play-button {
-            width: 50px !important;
-            height: 50px !important;
-        }
-        
-        .hero-photo {
-            width: 220px !important;
-        }
-        
-        .title {
-            font-size: 1.8rem !important;
-        }
-    }
-    
-    /* Для экранов 320px */
-    @media (max-width: 320px) {
-        .circle-player {
-            width: 100px !important;
-            height: 100px !important;
-        }
-        
-        .play-button {
-            width: 45px !important;
-            height: 45px !important;
-        }
-        
-        .hero-photo {
-            width: 200px !important;
-        }
-        
-        .title {
-            font-size: 1.6rem !important;
+            height: -webkit-fill-available !important;
         }
     }
 }
