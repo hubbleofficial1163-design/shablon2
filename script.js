@@ -198,3 +198,34 @@ function sendToGoogleSheetsJSONP(formData, callback) {
 // Для отладки: вызовите testConnection() в консоли браузера
 window.testConnection = testConnection;
 
+// Исправление для мобильного viewport (проблема с адресной строкой)
+function setMobileHeroHeight() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    
+    // Устанавливаем высоту равной внутренней высоте окна
+    const vh = window.innerHeight;
+    hero.style.height = vh + 'px';
+    hero.style.minHeight = vh + 'px';
+}
+
+// Вызываем при загрузке
+setMobileHeroHeight();
+
+// Вызываем при изменении ориентации или размера окна
+window.addEventListener('resize', () => {
+    setMobileHeroHeight();
+});
+
+// Для некоторых мобильных браузеров нужно также при скролле
+window.addEventListener('scroll', () => {
+    // Только если адресная строка скрывается/показывается
+    if (window.innerHeight !== parseInt(document.querySelector('.hero').style.height)) {
+        setMobileHeroHeight();
+    }
+});
+
+// Также полезно для Safari на iOS
+window.addEventListener('orientationchange', () => {
+    setTimeout(setMobileHeroHeight, 100);
+});
