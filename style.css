@@ -1117,10 +1117,6 @@ body {
         font-size: 1.3rem;
     }
     
-    .hero-photo {
-        width: 450px;
-        bottom: -40px;
-    }
     
     .countdown-number {
         font-size: 1.8rem;
@@ -1385,11 +1381,79 @@ a,
         max-width: 80%;
     }
 }
+/* Для очень маленьких экранов (iPhone SE и аналоги) */
 @media (max-width: 360px) {
+    .hero-content {
+        padding-top: 3vh; /* Еще уменьшаем отступ сверху */
+        padding-bottom: 20px; /* Добавляем отступ снизу */
+        flex: 0 0 auto; /* Не растягивается */
+    }
+    
+    .hero-content {
+        padding-top: 3vh; /* Еще уменьшаем отступ сверху */
+        padding-bottom: 20px; /* Добавляем отступ снизу */
+        flex: 0 0 auto; /* Не растягивается */
+    }
+    
+    .circle-player {
+        width: 100px; /* Делаем плеер компактнее */
+        height: 100px;
+    }
+    
+    .play-button {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .play-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .circle-text {
+        font-size: 9px; /* Уменьшаем текст вокруг плеера */
+    }
+    
     .hero-photo {
-        width: 280px; /* Уменьшено с 450px */
-        bottom: 0;
-        max-width: 75%;
+        position: relative; /* Меняем с absolute на relative */
+        width: 200px; /* Уменьшаем фото */
+        margin: 0 auto; /* Центрируем */
+        bottom: auto; /* Сбрасываем bottom */
+        left: auto; /* Сбрасываем left */
+        transform: none; /* Сбрасываем transform */
+        max-width: 80%;
+        flex: 0 0 auto; /* Не растягивается */
+        align-self: flex-end; /* Прижимаем к низу */
+        margin-top: auto; /* Отталкиваем все что сверху */
+    }
+    
+    
+    /* Дополнительная защита - если фото все еще наезжает */
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+}
+
+/* Еще один запасной вариант для совсем крошечных экранов */
+@media (max-width: 320px) {
+    .hero-content {
+        padding-top: 3vh;
+    }
+    
+    .circle-player {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .hero-photo {
+        width: 250px;
+        bottom: -10px; /* Можно чуть опустить, если нужно */
     }
 }
 
@@ -1430,4 +1494,91 @@ a,
     object-fit: contain;
     display: block;
     margin-left: auto;
+}
+
+
+/* Для маленьких экранов (iPhone SE, 375px) */
+@media (max-width: 375px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .hero-content {
+        padding-top: 8vh; /* УВЕЛИЧИЛИ с 3vh до 8vh - текст опускается ниже */
+        padding-bottom: 15px;
+        flex: 0 0 auto;
+    }
+    
+    .music-player-container {
+        margin: 20px 0 15px 0; /* УВЕЛИЧИЛИ отступы */
+        flex: 0 0 auto;
+    }
+    
+    .circle-player {
+        width: 100px; /* УВЕЛИЧИЛИ с 90px до 130px */
+        height: 100px;
+    }
+    
+    .play-button {
+        width: 50px; /* УВЕЛИЧИЛИ с 40px до 60px */
+        height: 50px;
+    }
+    
+    .play-icon {
+        width: 24px; /* УВЕЛИЧИЛИ с 16px до 24px */
+        height: 24px;
+    }
+    
+    .circle-text {
+        font-size: 10px; /* УВЕЛИЧИЛИ с 8px до 10px */
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .title {
+        font-size: 2rem; /* УВЕЛИЧИЛИ с 1.6rem до 2rem */
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+    
+    .hero-photo {
+        position: relative !important;
+        width: 260px !important; /* УВЕЛИЧИЛИ с 200px до 240px */
+        max-width: 80% !important;
+        margin: auto auto 0 auto !important;
+        bottom: 0 !important;
+        left: auto !important;
+        transform: none !important;
+        display: block;
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero-content {
+        padding-top: 3vh;
+    }
+    
+    .circle-player {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .play-button {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-photo {
+        width: 200px !important;
+    }
 }
