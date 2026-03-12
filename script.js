@@ -199,6 +199,7 @@ function sendToGoogleSheetsJSONP(formData, callback) {
 window.testConnection = testConnection;
 
 // Исправление для мобильного viewport (проблема с адресной строкой)
+// Исправление для мобильного viewport (особенно для Telegram)
 function setMobileHeroHeight() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
@@ -207,7 +208,48 @@ function setMobileHeroHeight() {
     const vh = window.innerHeight;
     hero.style.height = vh + 'px';
     hero.style.minHeight = vh + 'px';
+    
+    // Проверяем, открыт ли сайт в Telegram
+    const isTelegram = navigator.userAgent.toLowerCase().includes('telegram');
+    
+    if (isTelegram) {
+        // Дополнительная корректировка для Telegram
+        const heroPhoto = document.querySelector('.hero-photo');
+        const heroContent = document.querySelector('.hero-content');
+        
+        if (heroPhoto && heroContent) {
+            // Если фото все еще наезжает, добавляем отступ
+            const contentBottom = heroContent.getBoundingClientRect().bottom;
+            const photoTop = heroPhoto.getBoundingClientRect().top;
+            
+            if (photoTop < contentBottom + 20) {
+                heroContent.style.paddingBottom = '20px';
+            }
+        }
+    }
 }
+
+// Вызываем при загрузке
+setMobileHeroHeight();
+
+// Вызываем при изменении ориентации или размера окна
+window.addEventListener('resize', () => {
+    setMobileHeroHeight();
+});
+
+// Для некоторых мобильных браузеров нужно также при скролле
+window.addEventListener('scroll', () => {
+    // Только если адресная строка скрывается/показывается
+    const hero = document.querySelector('.hero');
+    if (hero && window.innerHeight !== parseInt(hero.style.height)) {
+        setMobileHeroHeight();
+    }
+});
+
+// Также полезно для Safari на iOS
+window.addEventListener('orientationchange', () => {
+    setTimeout(setMobileHeroHeight, 100);
+});
 
 // Вызываем при загрузке
 setMobileHeroHeight();
