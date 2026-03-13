@@ -1587,32 +1587,35 @@ a,
 /* Это решение работает на всех телефонах, включая Samsung Galaxy S22+ */
 
 /* Применяем ко всем мобильным устройствам с шириной экрана до 900px */
+/* ========== ИСПРАВЛЕНИЕ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ========== */
 @media (max-width: 900px) {
+    /* Фиксированная высота через JS, но с правильным поведением */
     .hero {
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important;
-        height: 100vh !important;
-        min-height: -webkit-fill-available !important;
+        justify-content: space-between !important; /* Распределяем пространство */
+        height: 100vh !important; /* Будет переопределено JS */
+        min-height: 100vh !important; /* Будет переопределено JS */
+        max-height: 100vh !important; /* Будет переопределено JS */
         position: relative !important;
-        overflow-y: auto !important; /* Добавляем скролл если нужно */
+        overflow: hidden !important; /* Убираем скролл у hero */
     }
     
-    /* Перестраиваем контент */
+    /* Контент занимает верхнюю часть */
     .hero-content {
         position: relative !important;
         z-index: 10 !important;
         padding-top: 20px !important;
-        padding-bottom: 20px !important;
+        padding-bottom: 10px !important;
         width: 100% !important;
         flex: 0 0 auto !important;
     }
     
-    /* Фиксим плеер */
+    /* Плеер */
     .music-player-container {
         position: relative !important;
         z-index: 10 !important;
-        margin: 10px 0 20px 0 !important;
+        margin: 10px 0 10px 0 !important;
         flex: 0 0 auto !important;
         display: flex !important;
         justify-content: center !important;
@@ -1629,24 +1632,26 @@ a,
         height: 60px !important;
     }
     
-    /* КРИТИЧЕСКИ ВАЖНО: меняем позиционирование фото */
+    /* Фото прижимаем к низу */
     .hero-photo {
-        position: relative !important; /* Меняем с absolute на relative */
+        position: relative !important;
         bottom: auto !important;
         left: auto !important;
         right: auto !important;
         transform: none !important;
         width: 300px !important;
         max-width: 90% !important;
-        margin: 0 auto 0 auto !important; /* Центрируем */
+        margin: 0 auto 0 auto !important;
         display: block !important;
         flex: 0 0 auto !important;
-        align-self: center !important;
+        align-self: flex-end !important; /* Прижимаем к низу */
         border-radius: 30px 30px 0 0 !important;
         z-index: 5 !important;
+        /* Добавляем отрицательный margin, чтобы фото казалось "прилипшим" к низу */
+        margin-bottom: -2px !important;
     }
     
-    /* Убираем возможные конфликтующие стили */
+    /* Убираем градиент */
     .hero::after {
         display: none !important;
     }
