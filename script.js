@@ -198,43 +198,40 @@ function sendToGoogleSheetsJSONP(formData, callback) {
 // Для отладки: вызовите testConnection() в консоли браузера
 window.testConnection = testConnection;
 
-// Исправление для мобильного viewport (проблема с адресной строкой)
-// Исправление для мобильного viewport (особенно для Telegram)
+// ========== ИСПРАВЛЕНИЕ ДЛЯ МОБИЛЬНОГО VIEWPORT ==========
 function setMobileHeroHeight() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
     
-    // Устанавливаем высоту равной внутренней высоте окна
-    const vh = window.innerHeight;
-    hero.style.height = vh + 'px';
-    hero.style.minHeight = vh + 'px';
-    
-    // Проверяем, открыт ли сайт в Telegram
-    const isTelegram = navigator.userAgent.toLowerCase().includes('telegram');
-    
-    if (isTelegram) {
-        // Дополнительная корректировка для Telegram
-        const heroPhoto = document.querySelector('.hero-photo');
-        const heroContent = document.querySelector('.hero-content');
-        
-        if (heroPhoto && heroContent) {
-            // Если фото все еще наезжает, добавляем отступ
-            const contentBottom = heroContent.getBoundingClientRect().bottom;
-            const photoTop = heroPhoto.getBoundingClientRect().top;
-            
-            if (photoTop < contentBottom + 20) {
-                heroContent.style.paddingBottom = '20px';
-            }
-        }
+    // Используем visualViewport API если доступно (современные браузеры)
+    if (window.visualViewport) {
+        const height = window.visualViewport.height;
+        hero.style.height = height + 'px';
+        hero.style.minHeight = height + 'px';
+        hero.style.maxHeight = height + 'px';
+    } else {
+        // Fallback для старых браузеров
+        const vh = window.innerHeight;
+        hero.style.height = vh + 'px';
+        hero.style.minHeight = vh + 'px';
+        hero.style.maxHeight = vh + 'px';
     }
 }
 
 // Вызываем при загрузке
 setMobileHeroHeight();
 
-// Вызываем при изменении ориентации или размера окна
-window.addEventListener('resize', () => {
-    setMobileHeroHeight();
+// Слушаем изменения visualViewport (когда адресная строка скрывается/показывается)
+if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setMobileHeroHeight);
+} else {
+    // Fallback для старых браузеров
+    window.addEventListener('resize', setMobileHeroHeight);
+}
+
+// Также при ориентации
+window.addEventListener('orientationchange', () => {
+    setTimeout(setMobileHeroHeight, 100);
 });
 
 // Для некоторых мобильных браузеров нужно также при скролле
@@ -244,30 +241,4 @@ window.addEventListener('scroll', () => {
     if (hero && window.innerHeight !== parseInt(hero.style.height)) {
         setMobileHeroHeight();
     }
-});
-
-// Также полезно для Safari на iOS
-window.addEventListener('orientationchange', () => {
-    setTimeout(setMobileHeroHeight, 100);
-});
-
-// Вызываем при загрузке
-setMobileHeroHeight();
-
-// Вызываем при изменении ориентации или размера окна
-window.addEventListener('resize', () => {
-    setMobileHeroHeight();
-});
-
-// Для некоторых мобильных браузеров нужно также при скролле
-window.addEventListener('scroll', () => {
-    // Только если адресная строка скрывается/показывается
-    if (window.innerHeight !== parseInt(document.querySelector('.hero').style.height)) {
-        setMobileHeroHeight();
-    }
-});
-
-// Также полезно для Safari на iOS
-window.addEventListener('orientationchange', () => {
-    setTimeout(setMobileHeroHeight, 100);
 });
