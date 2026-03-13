@@ -143,7 +143,7 @@ function initRSVPForm() {
 // Функция отправки через JSONP
 function sendToGoogleSheetsJSONP(formData, callback) {
     // Замените на ваш URL Google Apps Script
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyum29eKLlqq0ARRQLxfqugjPXJ4W0A5IAR-1e4Tfv_j1m4LeLFpw5ahHDx9hbWeqQI/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/fqugjPXJ4W0A5IAR-1e4Tfv_j1m4LeDx9hbWeqQI/exec';
     
     // Создаем уникальное имя для callback функции
     const callbackName = 'jsonp_callback_' + Date.now();
@@ -242,3 +242,4 @@ window.addEventListener('scroll', () => {
         setMobileHeroHeight();
     }
 });
+
