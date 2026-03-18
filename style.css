@@ -18,8 +18,8 @@ body {
 /* Hero секция - СВЕТЛЫЙ ФОН */
 .hero {
     width: 100vw;
-    height: 100vh; /* Будет переопределено JS */
-    min-height: 100vh; /* Будет переопределено JS */
+    height: 100vh;
+    min-height: 100vh;
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -28,7 +28,7 @@ body {
     color: #5c151b;
     text-align: center;
     overflow: hidden;
-    transition: height 0.1s ease; /* Плавное изменение */
+    transition: height 0.1s ease;
 }
 
 .hero-content {
@@ -45,7 +45,7 @@ body {
     position: absolute;
     width: 450px;
     height: auto;
-    bottom: 0; /* Изменено с отрицательного значения */
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -107,7 +107,6 @@ body {
     padding: 0 20px;
 }
 
-/* Рукописный шрифт для приглашения */
 .invitation {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 300;
@@ -189,16 +188,6 @@ body {
     z-index: 1;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-
-/* .calendar-date.wedding-date::after {
-    content: '♥';
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5rem;
-    color: #f0e9df;
-} */
 
 /* Фото места проведения */
 .location-photo-container {
@@ -765,11 +754,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent !important; /* Убедись, что фон прозрачный */
+    background-color: transparent !important;
 }
 
 .program-icon {
-    width: 80px; /* Фиксированные размеры */
+    width: 80px;
     height: 80px;
     object-position: center center;
     display: block;
@@ -796,412 +785,11 @@ body {
     margin-bottom: 10px;
 }
 
-/* Вертикальная линия для timeline эффекта */
-/* .program::before {
-    content: '';
-    position: absolute;
-    left: 40px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #e8e8e8;
-} */
-
-/* .program-item::before {
-    content: '';
-    position: absolute;
-    left: 36px;
-    top: 40px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #8B7355;
-    z-index: 1;
-} */
-
-/* Медиа-запросы для мобильных устройств */
-@media (max-width: 768px) {
-    /* Hero секция */
-    .hero-content {
-        padding-top: 10vh;
-    }
-    
-    .subtitle {
-        font-size: 1rem;
-        letter-spacing: 0.3rem;
-    }
-    
-    .title {
-        font-size: 2.5rem;
-        letter-spacing: 0.1rem;
-    }
-    
-    .hero-photo {
-        width: 380px;
-        bottom: 0;
-        max-width: 85%;
-    }
-    
-    /* Секция локации */
-    .location-section {
-        padding: 40px 0 0 0;
-    }
-    
-    .location-container {
-        padding: 0 15px;
-    }
-    
-    .invitation-text {
-        text-align: center;
-        padding: 0 15px;
-        margin-bottom: 30px;
-    }
-    
-    .invitation {
-        font-size: 1.6rem;
-        margin-left: 0;
-        text-align: center;
-    }
-    
-    .date {
-        font-size: 3rem;
-    }
-    
-    /* Простой календарь */
-    .simple-calendar {
-        margin: 0 auto 30px auto;
-        padding: 15px;
-        border-radius: 12px;
-    }
-    
-    .calendar-day {
-        font-size: 1rem;
-        padding: 8px 2px;
-    }
-    
-    .calendar-date {
-        font-size: 1.5rem;
-        padding: 12px 2px;
-        margin: 0 2px;
-        border-radius: 6px;
-    }
-    
-    .calendar-date.wedding-date {
-        transform: scale(1.05);
-    }
-    
-    .calendar-date.wedding-date::after {
-        font-size: 1.2rem;
-        bottom: -20px;
-    }
-    
-    /* Блок LOCATION */
-    .location-info-light {
-        padding: 40px 0;
-        border-radius: 20px 20px 0 0;
-    }
-    
-    .location-photo {
-        height: 300px;
-    }
-    
-    .location-title {
-        font-size: 2.5rem;
-    }
-    
-    .location-address {
-        font-size: 1.1rem;
-    }
-    
-    /* Все заголовки секций */
-    .section-title,
-    .dresscode-title,
-    .wishes-title,
-    .rsvp-title,
-    .location-title {
-        font-size: 2.5rem;
-        text-align: center !important;
-        margin-bottom: 40px;
-    }
-    
-    /* Все секции */
-    .program-section,
-    .dresscode-section,
-    .wishes-section,
-    .rsvp-section,
-    .countdown-section {
-        padding: 50px 15px;
-    }
-    
-    /* Все тексты */
-    .timeline-time,
-    .timeline-text,
-    .dresscode-text,
-    .wishes-text,
-    .rsvp-text {
-        font-size: 1.2rem;
-    }
-    
-    .timeline-dash {
-        font-size: 1.5rem;
-    }
-    
-    /* Таймлайн */
-    .program-timeline {
-        padding-left: 10px;
-    }
-    
-    /* DRESS CODE */
-    .dresscode-text {
-        text-align: center;
-    }
-    
-    .palette-container {
-        justify-content: center;
-        margin-left: 0;
-    }
-    
-    /* Таймер */
-    .countdown-title {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-    
-    .countdown-timer {
-        gap: 10px;
-    }
-    
-    .countdown-item {
-        min-width: 70px;
-    }
-    
-    .countdown-number {
-        font-size: 2.5rem;
-    }
-    
-    .countdown-label {
-        font-size: 0.9rem;
-    }
-    
-    .countdown-separator {
-        font-size: 2rem;
-        margin: 0 2px;
-    }
-    
-    /* Форма RSVP */
-    .rsvp-content {
-        margin: 0 auto;
-    }
-    
-    .rsvp-text {
-        text-align: center;
-    }
-    
-    /* Футер */
-    .footer-section {
-        padding: 40px 15px;
-    }
-    
-    .footer-text {
-        font-size: 1.1rem;
-    }
-    
-    .footer-contact {
-        font-size: 1.2rem;
-    }
-    
-    /* Программа на мобильных */
-    .program-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    
-    .program-image {
-        margin-right: 0;
-        margin-bottom: 15px;
-        width: 60px;
-        height: 60px;
-    }
-    
-    .program::before {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .program-item::before {
-        left: 50%;
-        transform: translateX(-50%);
-        top: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .title {
-        font-size: 2rem;
-    }
-    
-    .date {
-        font-size: 2.5rem;
-    }
-    
-    .invitation {
-        font-size: 1.4rem;
-    }
-    
-    .hero-photo {
-        width: 450px;
-        bottom: -40px;
-    }
-    
-    /* Календарь */
-    .calendar-row {
-        margin-bottom: 10px;
-    }
-    
-    .calendar-day {
-        font-size: 0.9rem;
-        padding: 6px 1px;
-    }
-    
-    .calendar-date {
-        font-size: 1.3rem;
-        padding: 10px 1px;
-        margin: 0 1px;
-    }
-    
-    .location-photo {
-        height: 250px;
-    }
-    
-    .location-info-light {
-        border-radius: 15px 15px 0 0;
-    }
-    
-    .location-title {
-        font-size: 2rem;
-    }
-    
-    .section-title,
-    .dresscode-title,
-    .wishes-title,
-    .rsvp-title {
-        font-size: 2rem;
-    }
-    
-    .countdown-title {
-        font-size: 1.8rem;
-    }
-    
-    .countdown-number {
-        font-size: 2rem;
-    }
-    
-    .countdown-item {
-        min-width: 60px;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 360px) {
-    .title {
-        font-size: 1.8rem;
-    }
-    
-    .date {
-        font-size: 2.2rem;
-    }
-    
-    .invitation {
-        font-size: 1.3rem;
-    }
-    
-    
-    .countdown-number {
-        font-size: 1.8rem;
-    }
-    
-    .countdown-label {
-        font-size: 0.8rem;
-    }
-    
-    .simple-calendar {
-        padding: 10px;
-    }
-    
-    .calendar-day {
-        font-size: 0.8rem;
-    }
-    
-    .calendar-date {
-        font-size: 1.1rem;
-        padding: 8px 0;
-    }
-}
-
-/* Убирает синее выделение при нажатии на мобильных устройствах */
-* {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Для инпутов и текстовых областей оставляем возможность выделения текста */
-input,
-textarea,
-[contenteditable="true"] {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-}
-
-/* Убирает outline при фокусе, но оставляет для accessibility */
-button:focus,
-a:focus,
-input:focus,
-textarea:focus {
-    outline: none;
-}
-
-/* Для доступности добавляем фокус видимый для клавиатуры */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-    outline: 2px solid #8B7355;
-    outline-offset: 2px;
-}
-
-/* Убирает выделение для кнопок и ссылок */
-button,
-a,
-.map-button,
-.submit-button {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-}
-
-/* Для Safari на iOS */
-@supports (-webkit-touch-callout: none) {
-    button,
-    a,
-    .map-button,
-    .submit-button {
-        -webkit-tap-highlight-color: transparent;
-    }
-}
-
-
 /* ПЛЕЕР МЕЖДУ ЗАГОЛОВКАМИ И ФОТО */
 .music-player-container {
     position: relative;
     z-index: 3;
-    margin: 100px 0 20px 0; /* Отступы сверху и снизу */
+    margin: 100px 0 20px 0;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -1273,6 +861,24 @@ a,
     height: 28px;
     fill: #f0e9df;
     margin-left: 3px;
+    transition: all 0.3s ease;
+}
+
+.play-triangle {
+    transition: opacity 0.3s ease;
+}
+
+.pause-bar {
+    transition: opacity 0.3s ease;
+}
+
+.play-button.playing .play-triangle {
+    opacity: 0;
+}
+
+.play-button.playing .pause-left,
+.play-button.playing .pause-right {
+    opacity: 1;
 }
 
 /* Анимация вращения текста */
@@ -1297,7 +903,7 @@ a,
 }
 
 .music-playing .circle-text {
-    animation-duration: 18s; /* Быстрее вращается при воспроизведении */
+    animation-duration: 18s;
 }
 
 /* Фото в hero - опускаем немного ниже */
@@ -1305,179 +911,10 @@ a,
     position: absolute;
     width: 450px;
     height: auto;
-    bottom: -50px; /* Опускаем еще ниже для места под плеер */
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-}
-
-/* Адаптивность для плеера */
-@media (max-width: 768px) {
-    .hero-content {
-        padding-top: 10vh;
-    }
-    
-    .circle-player {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .play-button {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .play-icon {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .circle-text {
-        font-size: 12px;
-    }
-    
-    .music-player-container {
-        margin: 20px 0 15px 0;
-    }
-    
-    .hero-photo {
-        width: 320px; /* Уменьшено с 450px */
-        bottom: 0; /* Убрано отрицательное значение */
-        max-width: 80%;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content {
-        padding-top: 8vh;
-    }
-    
-    .circle-player {
-        width: 130px;
-        height: 130px;
-    }
-    
-    .play-button {
-        width: 55px;
-        height: 55px;
-    }
-    
-    .play-icon {
-        width: 22px;
-        height: 22px;
-    }
-    
-    .circle-text {
-        font-size: 11px;
-    }
-    
-    .music-player-container {
-        margin: 20px 0 10px 0;
-    }
-    
-    .hero-photo {
-        width: 320px;
-        bottom: 0;
-        max-width: 80%;
-    }
-}
-/* Для очень маленьких экранов (iPhone SE и аналоги) */
-@media (max-width: 360px) {
-    .hero-content {
-        padding-top: 3vh; /* Еще уменьшаем отступ сверху */
-        padding-bottom: 20px; /* Добавляем отступ снизу */
-        flex: 0 0 auto; /* Не растягивается */
-    }
-    
-    .hero-content {
-        padding-top: 3vh; /* Еще уменьшаем отступ сверху */
-        padding-bottom: 20px; /* Добавляем отступ снизу */
-        flex: 0 0 auto; /* Не растягивается */
-    }
-    
-    .circle-player {
-        width: 100px; /* Делаем плеер компактнее */
-        height: 100px;
-    }
-    
-    .play-button {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .play-icon {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .circle-text {
-        font-size: 9px; /* Уменьшаем текст вокруг плеера */
-    }
-    
-    .hero-photo {
-        position: relative; /* Меняем с absolute на relative */
-        width: 200px; /* Уменьшаем фото */
-        margin: 0 auto; /* Центрируем */
-        bottom: auto; /* Сбрасываем bottom */
-        left: auto; /* Сбрасываем left */
-        transform: none; /* Сбрасываем transform */
-        max-width: 80%;
-        flex: 0 0 auto; /* Не растягивается */
-        align-self: flex-end; /* Прижимаем к низу */
-        margin-top: auto; /* Отталкиваем все что сверху */
-    }
-    
-    
-    /* Дополнительная защита - если фото все еще наезжает */
-    .subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .title {
-        font-size: 1.8rem;
-        line-height: 1.1;
-    }
-}
-
-/* Еще один запасной вариант для совсем крошечных экранов */
-@media (max-width: 320px) {
-    .hero-content {
-        padding-top: 3vh;
-    }
-    
-    .circle-player {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .hero-photo {
-        width: 250px;
-        bottom: -10px; /* Можно чуть опустить, если нужно */
-    }
-}
-
-.play-icon {
-    width: 32px;
-    height: 32px;
-    transition: all 0.3s ease;
-}
-
-.play-triangle {
-    transition: opacity 0.3s ease;
-}
-
-.pause-bar {
-    transition: opacity 0.3s ease;
-}
-
-.play-button.playing .play-triangle {
-    opacity: 0;
-}
-
-.play-button.playing .pause-left,
-.play-button.playing .pause-right {
-    opacity: 1;
 }
 
 .date-photo-container {
@@ -1496,238 +933,303 @@ a,
     margin-left: auto;
 }
 
+/* Убирает синее выделение при нажатии на мобильных устройствах */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
-/* Для маленьких экранов (iPhone SE, 375px) */
-@media (max-width: 375px) {
-    .hero {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+/* Для инпутов и текстовых областей оставляем возможность выделения текста */
+input,
+textarea,
+[contenteditable="true"] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* Убирает outline при фокусе, но оставляет для accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+/* Для доступности добавляем фокус видимый для клавиатуры */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #8B7355;
+    outline-offset: 2px;
+}
+
+/* Убирает выделение для кнопок и ссылок */
+button,
+a,
+.map-button,
+.submit-button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Для Safari на iOS */
+@supports (-webkit-touch-callout: none) {
+    button,
+    a,
+    .map-button,
+    .submit-button {
+        -webkit-tap-highlight-color: transparent;
     }
-    
+}
+
+/* ========== ЕДИНЫЙ БРЕЙКПОИНТ ТОЛЬКО 479px ========== */
+@media screen and (max-width: 479px) {
+
+    /* Hero секция */
     .hero-content {
-        padding-top: 8vh; /* УВЕЛИЧИЛИ с 3vh до 8vh - текст опускается ниже */
-        padding-bottom: 15px;
-        flex: 0 0 auto;
+        padding-top: 10vh;
     }
-    
-    .music-player-container {
-        margin: 20px 0 15px 0; /* УВЕЛИЧИЛИ отступы */
-        flex: 0 0 auto;
-    }
-    
-    .circle-player {
-        width: 100px; /* УВЕЛИЧИЛИ с 90px до 130px */
-        height: 100px;
-    }
-    
-    .play-button {
-        width: 50px; /* УВЕЛИЧИЛИ с 40px до 60px */
-        height: 50px;
-    }
-    
-    .play-icon {
-        width: 24px; /* УВЕЛИЧИЛИ с 16px до 24px */
-        height: 24px;
-    }
-    
-    .circle-text {
-        font-size: 10px; /* УВЕЛИЧИЛИ с 8px до 10px */
-    }
-    
+
     .subtitle {
         font-size: 1rem;
-        margin-bottom: 0.5rem;
+        letter-spacing: 0.3rem;
     }
-    
+
     .title {
-        font-size: 2rem; /* УВЕЛИЧИЛИ с 1.6rem до 2rem */
-        line-height: 1.2;
-        margin-bottom: 10px;
+        font-size: 2.5rem;
     }
-    
+
     .hero-photo {
-        position: relative !important;
-        width: 260px !important; /* УВЕЛИЧИЛИ с 200px до 240px */
-        max-width: 80% !important;
-        margin: auto auto 0 auto !important;
-        bottom: 0 !important;
-        left: auto !important;
-        transform: none !important;
-        display: block;
-        flex: 0 0 auto;
+        width: 380px;
+        bottom: 0;
+        max-width: 85%;
     }
-}
 
-@media (max-width: 320px) {
-    .hero-content {
-        padding-top: 3vh;
-    }
-    
-    .circle-player {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .play-button {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .title {
-        font-size: 1.6rem;
-    }
-    
-    .hero-photo {
-        width: 200px !important;
-    }
-}
-
-/* ========== УНИВЕРСАЛЬНОЕ ИСПРАВЛЕНИЕ ДЛЯ ВСЕХ МОБИЛЬНЫХ УСТРОЙСТВ ========== */
-/* Это решение работает на всех телефонах, включая Samsung Galaxy S22+ */
-
-/* Применяем ко всем мобильным устройствам с шириной экрана до 900px */
-/* ========== ИСПРАВЛЕНИЕ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ========== */
-@media (max-width: 900px) {
-    /* Фиксированная высота через JS, но с правильным поведением */
-    .hero {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important; /* Распределяем пространство */
-        height: 100vh !important; /* Будет переопределено JS */
-        min-height: 100vh !important; /* Будет переопределено JS */
-        max-height: 100vh !important; /* Будет переопределено JS */
-        position: relative !important;
-        overflow: hidden !important; /* Убираем скролл у hero */
-    }
-    
-    /* Контент занимает верхнюю часть */
-    .hero-content {
-        position: relative !important;
-        z-index: 10 !important;
-        padding-top: 20px !important;
-        padding-bottom: 10px !important;
-        width: 100% !important;
-        flex: 0 0 auto !important;
-    }
-    
     /* Плеер */
     .music-player-container {
-        position: relative !important;
-        z-index: 10 !important;
-        margin: 10px 0 10px 0 !important;
-        flex: 0 0 auto !important;
-        display: flex !important;
-        justify-content: center !important;
-        width: 100% !important;
+        margin: 5px 0 20px 0;
     }
-    
+
     .circle-player {
-        width: 150px !important;
-        height: 150px !important;
+        width: 150px;
+        height: 150px;
     }
-    
+
     .play-button {
-        width: 60px !important;
-        height: 60px !important;
+        width: 60px;
+        height: 60px;
     }
-    
-    /* Фото прижимаем к низу */
-    .hero-photo {
-        position: relative !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-        transform: none !important;
-        width: 300px !important;
-        max-width: 90% !important;
-        margin: 0 auto 0 auto !important;
-        display: block !important;
-        flex: 0 0 auto !important;
-        align-self: flex-end !important; /* Прижимаем к низу */
-        border-radius: 30px 30px 0 0 !important;
-        z-index: 5 !important;
-        /* Добавляем отрицательный margin, чтобы фото казалось "прилипшим" к низу */
-        margin-bottom: -2px !important;
+
+    .play-icon {
+        width: 24px;
+        height: 24px;
     }
-    
-    /* Убираем градиент */
-    .hero::after {
-        display: none !important;
+
+    .circle-text {
+        font-size: 12px;
+    }
+
+    /* Секция локации */
+    .location-section {
+        padding: 40px 0 0 0;
+    }
+
+    .invitation-text {
+        text-align: center;
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+
+    .invitation {
+        font-size: 1.4rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .date {
+        font-size: 3rem;
+    }
+
+    /* Календарь */
+    .simple-calendar {
+        margin: 0 auto 30px auto;
+        padding: 15px;
+    }
+
+    .calendar-day {
+        font-size: 1rem;
+        padding: 8px 2px;
+    }
+
+    .calendar-date {
+        font-size: 1.5rem;
+        padding: 12px 2px;
+        margin: 0 2px;
+    }
+
+    .calendar-date.wedding-date {
+        transform: scale(1.05);
+    }
+
+    /* Фото места */
+    .location-photo {
+        height: 300px;
+    }
+
+    /* Блок LOCATION */
+    .location-info-light {
+        padding: 40px 0;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .location-title {
+        font-size: 2.5rem;
+    }
+
+    .location-address {
+        font-size: 1.1rem;
+    }
+
+    /* Все заголовки секций */
+    .section-title,
+    .dresscode-title,
+    .wishes-title,
+    .rsvp-title {
+        font-size: 2.5rem;
+        text-align: center !important;
+        margin-bottom: 40px;
+    }
+
+    /* Все секции */
+    .program-section,
+    .dresscode-section,
+    .wishes-section,
+    .rsvp-section,
+    .countdown-section {
+        padding: 50px 15px;
+    }
+
+    /* Таймлайн */
+    .timeline-time,
+    .timeline-text {
+        font-size: 1.2rem;
+    }
+
+    .timeline-dash {
+        font-size: 1.5rem;
+    }
+
+    /* DRESS CODE */
+    .dresscode-text,
+    .wishes-text,
+    .rsvp-text {
+        font-size: 1.2rem;
+    }
+
+    .palette-container {
+        justify-content: center;
+    }
+
+    /* Таймер */
+    .countdown-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .countdown-timer {
+        gap: 10px;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+    }
+
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.9rem;
+    }
+
+    .countdown-separator {
+        font-size: 2rem;
+        margin: 0 2px;
+    }
+
+    /* Программа (иконки) */
+    .program-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .program-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .program-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .program-title {
+        font-size: 18px;
+    }
+
+    .program-time {
+        font-size: 16px;
+    }
+
+    /* Футер */
+    .footer-section {
+        padding: 40px 15px;
+    }
+
+    .footer-text {
+        font-size: 1.1rem;
+    }
+
+    .footer-contact {
+        font-size: 1.2rem;
     }
 }
 
-/* Специфично для Samsung и больших телефонов (ширина 400-900px) */
-@media (min-width: 401px) and (max-width: 900px) {
-    .hero-content {
-        padding-top: 30px !important;
-    }
-    
-    .hero-photo {
-        width: 350px !important;
-        margin-top: 10px !important;
-    }
-    
+/* Для очень маленьких экранов (дополнительно) */
+@media screen and (max-width: 360px) {
     .title {
-        font-size: 2.5rem !important;
+        font-size: 2rem;
     }
-}
 
-/* Для очень больших телефонов (как S22+) */
-@media (min-width: 700px) and (max-width: 900px) {
-    .hero-content {
-        padding-top: 50px !important;
+    .date {
+        font-size: 2.5rem;
     }
-    
+
     .circle-player {
-        width: 170px !important;
-        height: 170px !important;
+        width: 130px;
+        height: 130px;
     }
-    
-    .play-button {
-        width: 70px !important;
-        height: 70px !important;
-    }
-    
-    .hero-photo {
-        width: 400px !important;
-    }
-    
-    .title {
-        font-size: 3rem !important;
-    }
-}
 
-/* Для маленьких телефонов */
-@media (max-width: 400px) {
-    .hero-content {
-        padding-top: 15px !important;
-    }
-    
-    .circle-player {
-        width: 120px !important;
-        height: 120px !important;
-    }
-    
-    .play-button {
-        width: 50px !important;
-        height: 50px !important;
-    }
-    
     .hero-photo {
-        width: 250px !important;
+        width: 320px;
     }
-    
-    .title {
-        font-size: 2rem !important;
-    }
-}
 
-/* Фикс для Telegram и других WebView */
-@supports (-webkit-touch-callout: none) {
-    @media (max-width: 900px) {
-        .hero {
-            height: -webkit-fill-available !important;
-        }
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .countdown-item {
+        min-width: 60px;
     }
 }
