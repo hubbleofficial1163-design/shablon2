@@ -1233,3 +1233,94 @@ a,
         min-width: 60px;
     }
 }
+
+
+/* Центрирование всего текста на ПК */
+@media screen and (min-width: 768px) {
+    /* Все заголовки */
+    .section-title,
+    .wishes-title,
+    .dresscode-title,
+    .rsvp-title,
+    .countdown-title,
+    .location-title {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Все тексты */
+    .invitation-text,
+    .invitation,
+    .date,
+    .location-address,
+    .program-title,
+    .program-time,
+    .wishes-text,
+    .dresscode-text,
+    .rsvp-text,
+    .footer-text {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Контейнеры */
+    .invitation-text,
+    .wishes-content,
+    .dresscode-content,
+    .rsvp-content,
+    .program {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Календарь - фиксируем строки */
+    .simple-calendar {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 600px !important;
+    }
+    
+    .calendar-row {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+    }
+    
+    .calendar-day,
+    .calendar-date {
+        flex: 1 !important;
+        text-align: center !important;
+    }
+    
+    /* Палитра */
+    .palette-container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+    
+    /* Кнопки */
+    .map-button,
+    .submit-button {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: fit-content !important;
+    }
+    
+    /* Программа дня */
+    .program-item {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    .program-image {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
